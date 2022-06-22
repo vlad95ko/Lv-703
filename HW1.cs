@@ -28,7 +28,7 @@ namespace Homework
             r = Convert.ToDouble(Console.ReadLine());
             double length = 2 * PI * r;
             double area = PI * r * r;
-            double volume = 4 / 3 * PI * r * r * r;
+            double volume = 4.0 / 3.0 * PI * r * r * r;
             Console.WriteLine($"Length of a circle = {length:F2}, area = {area:F2} and volume = {volume:F2}");
         }
     }
