@@ -1,100 +1,58 @@
 ﻿using System;
 
-namespace Task2
+namespace Homework1
 {
     internal class Program
     {
-        enum TestCaseStatus
-        {
-            Pass,
-            Fail,
-            Blocked,
-            WP,
-            Unexecuted
-        }
-
-        struct RGB
-        {
-            public byte red;
-            public byte green;
-            public byte blue;
-
-            public void FullRGBColorOutput()
-            {
-                Console.WriteLine($"RGB ({red}, {green}, {blue})");
-            }
-        }
-
         static void Main(string[] args)
         {
-            //Task2Part1
-            Console.Write("Write the day's value : ");
-            int day = Convert.ToInt32(Console.ReadLine());
-            if (day > 0 && day <= 31)
-            {
-                Console.WriteLine($"The day's value is {day}");
-            }
-            else
-            {
-                Console.WriteLine("That's not correct value for the day!");
-            }
-            Console.Write("Write the month's value : ");
-            int month = Convert.ToInt32(Console.ReadLine());
-            if (month > 0 && month <= 12)
-            {
-                Console.WriteLine($"The month's value is {month}\n");
-            }
-            else
-            {
-                Console.WriteLine("That's not correct value for the month!\n");
-            }
-
-            //Task2Part2
-            Console.Write("Print a floating-point number to parse : ");
+            //Homework1Task1
+            Console.Write("Write the square's side value : ");
             string s = Console.ReadLine();
-            string connectedString = string.Empty;
-            bool cheked = false;
-            foreach (char item in s)
+            string s1 = string.Empty; //string of numbers to convert into Int32
+            foreach (char value in s)
             {
-                if (char.IsPunctuation(item) || cheked == true)
+                if (char.IsNumber(value))
                 {
-                    if (cheked)
-                    {
-                        connectedString = string.Concat(connectedString, item);
-                    }
-                    cheked = true;
+                    s1 = string.Concat(s1, value);
                 }
             }
-            string firstNumberString = connectedString.Substring(0, 1);
-            string secondNumberString = connectedString.Substring(1, 1);
-            int firstNumber = Convert.ToInt32(firstNumberString);
-            int secondNumber = Convert.ToInt32(secondNumberString);
-            int sum = firstNumber + secondNumber;
-            Console.WriteLine($"Sum output : {sum}\n");
+            int a = Convert.ToInt32(s1); //square's side value
+            int area = a * a;
+            int perimeter = 4 * a;
+            Console.WriteLine($"The area of the square with side length {a} is {area} and its perimeter equals {perimeter}\n");
+            Console.WriteLine("Press 'ENTER' to go to the next Task... \n");
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter)
+            {
 
-            //Task2Part3
-            Console.Write("Write an \"hour\" value : ");
-            int h = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine((h >= 6 && h < 12) ? "Good morning!\n" : (h >= 12 && h < 18) ? "Good afternoon!\n" :
-                (h >= 18 && h < 24) ? "Good evening!\n" : (h == 24 && h < 6) ? "Good night\n" : "What is the time?\n");
+            }
 
-            //Task2Part4
-            Console.WriteLine("Assigning status “Pass” for variable test1Status and output it on the console :");
-            TestCaseStatus test1Status = new TestCaseStatus();
-            test1Status = TestCaseStatus.Pass;
-            Console.WriteLine($"Outputting {nameof(test1Status)} variable as {test1Status} equals to {(int)test1Status}");
+            //Homework1Task2
+            string name;
+            int age;
+            Console.WriteLine("What is your name?");
+            name = Console.ReadLine();
+            Console.WriteLine("How old are you, {0}?", name);
+            age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"{name} is {age}.\n");
+            Console.WriteLine("Press 'ENTER' to go to the next Task... \n");
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter)
+            {
 
-            //Task2Part5
-            Console.WriteLine("\nColors in RGB format : ");
-            RGB white = new RGB();
-            white.red = white.green = white.blue = 255;
-            Console.WriteLine("Color is '{0}'", nameof(white));
-            white.FullRGBColorOutput();
-            RGB black = new RGB();
-            Console.WriteLine("Color is '{0}'", nameof(black));
-            black.red = black.green = black.blue = 0;
-            black.FullRGBColorOutput();
-            Console.Read();
+            }
+
+            //Homework1Task3
+            Console.Write("Write the radius of the circle : ");
+            double r = Convert.ToDouble(Console.ReadLine());
+            double length = 2 * Math.PI * r;
+            double circleArea = Math.PI * r * r;
+            double volume = (double)4 / 3 * Math.PI * r * r * r;
+            Console.WriteLine($"The length of the circle : {length}, its area : {circleArea}, and the volume : {volume}.\n");
+            Console.WriteLine("Press 'ENTER' to end a program... \n");
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter)
+            {
+
+            }
         }
     }
 }
