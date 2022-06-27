@@ -1,4 +1,4 @@
-﻿namespace HW2Kovalenko
+namespace HW2Kovalenko
 {
     internal class Program
     {
