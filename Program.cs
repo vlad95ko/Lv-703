@@ -1,4 +1,4 @@
-﻿//HomeWork3
+//HomeWork3
 //Task1
 Console.WriteLine("Hi,please type yout name and surname");
 string fullname = Console.ReadLine();
