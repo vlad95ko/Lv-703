@@ -1,4 +1,3 @@
-﻿
 //task1
 Console.WriteLine("Enter text");
 string str = Console.ReadLine();
