@@ -1,54 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Task5
+namespace Homework5._2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<IFlyable> myList = new List<IFlyable>();
-            myList.Add(new Bird("Eagle", true));
-            myList.Add(new Plane("Antonow", 10000));
-            foreach (var el in myList)
+            Dictionary<uint, string> myDictionary = new Dictionary<uint, string>();
+            Console.WriteLine("Enter person info");
+            for (int i = 0; i < 7; i++)
             {
-                el.Fly();
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+                Console.Write("ID: ");
+                uint ID = uint.Parse(Console.ReadLine());
+                myDictionary.Add(ID, name);
             }
-
-            List<int> myColl = new List<int>();
-            
-            Console.WriteLine("Enter your numbers: ");
-            for (int i = 1; i <= 10; i++)
+            Console.Write("Enter ID for search:");
+            uint myKey = uint.Parse(Console.ReadLine());
+            bool isFaund = false;
+            foreach (KeyValuePair<uint, string> keyValue in myDictionary)
             {
-                myColl.Add(int.Parse(Console.ReadLine()));
-            }
-            Console.WriteLine("======== Find -10 position =============");
-            for (int i = 0; i < myColl.Count; i++)
-            {
-                if (myColl[i] == -10)
+                if (keyValue.Key == myKey)
                 {
-                    Console.WriteLine($"Position -10 = {i+1}");
+                    Console.WriteLine($"ID = {keyValue.Key} - Name is: {keyValue.Value}");
+                    isFaund = true;
                 }
             }
-            Console.WriteLine("========= Remove numbers > 20 ============");
-            myColl.RemoveAll(digit => digit > 20);
-            foreach (var item in myColl)
+            if (!isFaund)
             {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("========== Insert in position and sort ===========");
-            myColl.Insert(1, 1);
-            myColl.Insert(4, -4);
-            myColl.Insert(7, -3);
-            myColl.Sort();
-            foreach (var item in myColl)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadKey();
+                Console.WriteLine("ID not found");
+            }     
         }
     }
 }
