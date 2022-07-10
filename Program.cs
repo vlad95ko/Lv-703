@@ -1,4 +1,4 @@
-﻿namespace HW6Kovalenko
+namespace HW6Kovalenko
 {
     internal class Program
     {
@@ -104,3 +104,4 @@
 
     }
 }
+
