@@ -101,7 +101,5 @@ namespace HW6Kovalenko
             ReadNumber(start, end);
             Console.WriteLine();
         }
-
     }
 }
-
