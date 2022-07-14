@@ -41,12 +41,10 @@ namespace Homework_7
                 //Part 2 ----------------
                 Console.WriteLine("\nEnter name to search phone number:");
                 string nameToSearch = Convert.ToString(Console.ReadLine());
-                string nameToSearchLower = nameToSearch.ToLower();
                 bool found = false;
                 foreach(string name in phoneBook.Keys)
                 {
-                    string nameLowerCase = name.ToLower();
-                    if (nameLowerCase == nameToSearch)
+                    if (name.ToLower() == nameToSearch.ToLower())
                     {
                         found = true;
                         Console.WriteLine($"{name} - {phoneBook[name]}");
